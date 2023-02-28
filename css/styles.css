@@ -241,6 +241,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
+  right: -80px;
 }
 .promo__title {
   font-size: 45px;
@@ -312,7 +314,6 @@ body {
   font-family: "Prata";
   font-weight: 300;
   font-size: 14px;
-  left: -35px;
   z-index: -1;
 }
 .promo__image::before {
