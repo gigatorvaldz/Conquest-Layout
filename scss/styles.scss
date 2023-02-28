@@ -1,0 +1,614 @@
+@import "reset.scss";
+@import "colors.scss";
+
+// Первая секция (ПЕРЕСМОТР)
+// Контейнер съедает часть за счёт padding
+// SVG, hover SVG, Рубли
+// socials icon не ссылки
+// Декомпоўз SCSS
+
+%flex-center-pattern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin link-hover($color, $size) {
+    &:hover {
+        border-bottom: $size solid $color;
+    }
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+body {
+    font-family: "Playfair Display";
+}
+.visually-hidden {
+    display: none;
+}
+
+.container {
+    max-width: 1126px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-header {
+    padding-top: 36px;
+    padding-bottom: 36px;
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__main-nav {
+        display: flex;
+        gap: 65px;
+    }
+
+    &__services {
+        display: flex;
+        gap: 23px;
+    }
+
+    &__service {
+        svg path {
+            transition: fill 0.3s ease-in-out;
+        }
+        &:hover {
+            & svg path {
+                fill: $color_5;
+            }
+        }
+    }
+
+    &__link {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: $color_3;
+
+        @include link-hover(1px, $color_3);
+    }
+    &__liked-icon {
+        position: relative;
+        svg path {
+            transition: stroke 0.3s ease-in-out;
+        }
+        &:hover {
+            & svg path {
+                stroke: $color_5;
+            }
+        }
+
+        &::after {
+            content: "1";
+            display: block;
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            background-color: $color_4;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $color_1;
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 8px;
+            line-height: 9px;
+            text-align: center;
+            right: -7px;
+            top: -7px;
+        }
+    }
+}
+
+.promo {
+    padding: 0 20px;
+
+    color: $color_1;
+
+    &-container {
+        max-width: 1166px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-size: 45px;
+        font-weight: 400;
+        line-height: 60px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 16px;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 1px;
+            background-color: #8b8371;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -80px;
+        }
+    }
+
+    &__title-description {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 39px;
+    }
+
+    &__description {
+        font-family: "Roboto";
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $color_1-add;
+        margin-bottom: 64px;
+        width: 70%;
+    }
+
+    &__button {
+        width: max-content;
+        padding: 26px 38px;
+        background-color: $color_2;
+        color: #fff;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $color_2-hover;
+        }
+    }
+
+    &__image {
+        display: flex;
+        position: relative;
+        margin-left: auto;
+        width: 85%;
+        font-family: "Prata";
+        font-weight: 300;
+        font-size: 14px;
+        // left: -35px;
+        // z-index: -1;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-bottom: 100%;
+            background-image: url("../img/Ellipse.png");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: contain;
+        }
+
+        &-inner {
+            position: absolute;
+            top: -10px;
+            left: 120px;
+            height: 105%;
+            margin-left: 60px;
+        }
+
+        &-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 15%;
+            left: 15%;
+            position: absolute;
+            gap: 15px;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 1px;
+                background-color: #8b8371;
+            }
+        }
+
+        &-info {
+            bottom: 15%;
+            right: 10%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+
+            &::before {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 1px;
+                background-color: #8b8371;
+            }
+        }
+    }
+}
+
+.popular {
+    padding-top: 79px;
+    padding-bottom: 86px;
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 43px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    &__link-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 52px;
+    }
+
+    &__link {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: $color_2;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #c4c0b6;
+    }
+
+    &__model {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
+
+.model {
+    box-sizing: border-box;
+    padding: 26px 36px;
+    flex-grow: 1;
+    color: $color_1-add;
+    &__bg {
+        // max-width: 313px;
+        background-image: url("../img/popular-bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &__title {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.03em;
+    }
+
+    // РУБЛИ
+    &__price {
+        font-family: "Prata";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &__more-link {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: $color_1;
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 1px;
+            background-color: #8b8371;
+        }
+
+        p {
+            border-bottom: 1px solid transparent;
+            @include link-hover(1px, $color_1);
+        }
+    }
+}
+
+.banner {
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1012px;
+        margin: 0 auto;
+    }
+
+    &__bg {
+        position: relative;
+        padding: 53px;
+        background: #f7f5ef; /* Old browsers */
+        background: -moz-linear-gradient(left, #f7f5ef 0%, #f7f5ef 37%, #fdfdfb 37%, #fdfdfb 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(
+            left,
+            #f7f5ef 0%,
+            #f7f5ef 37%,
+            #fdfdfb 37%,
+            #fdfdfb 100%
+        ); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+            to right,
+            #f7f5ef 0%,
+            #f7f5ef 37%,
+            #fdfdfb 37%,
+            #fdfdfb 100%
+        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f5ef', endColorstr='#fdfdfb',GradientType=1 ); /* IE6-9 */
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            background: no-repeat url("../img/banner-1.png");
+            width: 200px;
+            height: 100%;
+            right: 0;
+            top: 0;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background: no-repeat url("../img/banner-2.png");
+            width: 200px;
+            height: 100%;
+            right: 0;
+            top: 0;
+        }
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        padding: 69px;
+    }
+    &__img-container {
+        position: relative;
+        width: 50%;
+        max-height: 414px;
+        max-width: 521px;
+    }
+    &__controls {
+        position: absolute;
+        @extend %flex-center-pattern;
+        gap: 20px;
+    }
+    &__title {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 43px;
+        color: $color_1;
+        margin-bottom: 38px;
+    }
+    &__description {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: $color_2;
+        margin-bottom: 45px;
+    }
+    &__button {
+        padding: 26px 38px;
+        background-color: $color_5;
+        width: max-content;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.05em;
+        color: #fff;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $color_5-hover;
+        }
+    }
+}
+
+.slider-controls {
+    right: 50px;
+    bottom: -30px;
+
+    &__text {
+        font-family: "Prata";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: $color_1-add;
+    }
+
+    &__button {
+        @extend %flex-center-pattern;
+    }
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+
+    gap: 30px;
+    padding-top: 80px;
+    padding-bottom: 90px;
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 50%;
+    }
+    &__title {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 43px;
+        color: $color_1;
+        margin-bottom: 40px;
+    }
+    &__description {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 27px;
+        width: 70%;
+        color: $color_2;
+    }
+    &__social-icons {
+        display: flex;
+        gap: 18px;
+        position: absolute;
+        bottom: 100px;
+    }
+    &__icon {
+        svg path {
+            transition: fill 0.3s ease-in-out;
+        }
+        &:hover {
+            & svg path {
+                fill: $color_5;
+            }
+        }
+    }
+    &__images {
+        display: flex;
+        gap: 10px;
+        max-height: 460px;
+    }
+    &__aside-images {
+        width: 38%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__image {
+        height: 100%;
+    }
+    &__main-image {
+        width: 62%;
+    }
+}
+
+.ruble {
+    vertical-align: baseline;
+}
+
+.footer {
+    padding-top: 80px;
+    padding-bottom: 70px;
+    &-background {
+        background-color: #444240;
+    }
+
+    &__contacts {
+        transform: translateY(-12px);
+        // Костыль
+    }
+    // Logo выровнять по другим блокам
+
+    &__block-title {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    &__block-link {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: rgba(255, 255, 255, 0.75);
+        border-bottom: 1px solid transparent;
+
+        @include link-hover(1px, rgba(255, 255, 255, 0.75));
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    display: flex;
+    justify-content: space-between;
+}
