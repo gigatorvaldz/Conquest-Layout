@@ -223,7 +223,7 @@ body {
   color: #1B1A17;
 }
 .promo-container {
-  max-width: 1166px;
+  max-width: 1126px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,6 +231,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 20px;
 }
 .promo__info {
   display: -webkit-box;
@@ -311,6 +312,8 @@ body {
   font-family: "Prata";
   font-weight: 300;
   font-size: 14px;
+  left: -35px;
+  z-index: -1;
 }
 .promo__image::before {
   content: "";
@@ -353,7 +356,7 @@ body {
 }
 .promo__image-info {
   bottom: 15%;
-  right: 10%;
+  right: 0%;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
